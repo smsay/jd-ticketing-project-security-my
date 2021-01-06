@@ -21,6 +21,7 @@ public class UserMapper {
     }
 
     public UserDTO convertToDto(User entity){
+
         return modelMapper.map(entity,UserDTO.class);
     }
 }
