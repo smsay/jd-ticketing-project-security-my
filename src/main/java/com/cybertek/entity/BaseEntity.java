@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.apache.tomcat.jni.Local;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -31,6 +32,12 @@ public class BaseEntity {
         this.insertDateTime=LocalDateTime.now();
         this.lastUpdateDateTime=LocalDateTime.now();
         this.insertUserId=1L;
+        this.lastUpdateUserId=1L;
+    }
+
+    @PreUpdate
+    private void onPreUpdate(){
+        this.lastUpdateDateTime= LocalDateTime.now();
         this.lastUpdateUserId=1L;
     }
 
