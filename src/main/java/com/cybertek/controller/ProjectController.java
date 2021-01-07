@@ -66,25 +66,25 @@ public class ProjectController {
     }
 
 
+    @GetMapping("/update/{projectcode}")
+    public String editProject(@PathVariable("projectcode") String projectcode,Model model){
 
-//
-//    @GetMapping("/update/{projectcode}")
-//    public String editProject(@PathVariable("projectcode") String projectcode,Model model){
-//
-//        model.addAttribute("project",projectService.findById(projectcode));
-//        model.addAttribute("projects",projectService.findAll());
-//        model.addAttribute("managers",userService.findManagers());
-//
-//        return "/project/update";
-//    }
-//
-//    @PostMapping("/update/{projectcode}")
-//    public String updateProject(@PathVariable("projectcode") String projectcode,ProjectDTO project,Model model){
-//
-//        projectService.update(project);
-//
-//        return "redirect:/project/create";
-//    }
+        model.addAttribute("project",projectService.getByProjectCode(projectcode));
+        model.addAttribute("projects",projectService.listAllProjects());
+        model.addAttribute("managers",userService.listAllByRole("manager"));
+
+        return "/project/update";
+    }
+
+    @PostMapping("/update/{projectcode}")
+    public String updateProject(@PathVariable("projectcode") String projectcode,ProjectDTO project){
+
+        projectService.update(project);
+
+        return "redirect:/project/create";
+    }
+
+
 //
 //    @GetMapping("/manager/complete")
 //    public String getProjectByManager(Model model){
