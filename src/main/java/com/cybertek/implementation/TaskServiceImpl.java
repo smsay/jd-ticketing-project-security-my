@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class TaskServiceImp implements TaskService {
+public class TaskServiceImpl implements TaskService {
     @Override
     public TaskDTO findById(Long id) {
         return null;
