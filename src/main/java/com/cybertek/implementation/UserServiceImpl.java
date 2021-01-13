@@ -32,7 +32,6 @@ public class UserServiceImpl implements UserService {
         this.taskService = taskService;
     }
 
-}
 
     @Override
     public List<UserDTO> listAllUsers() {
@@ -100,6 +99,5 @@ public class UserServiceImpl implements UserService {
             default:
                 return true;
         }
-
-}
+    }
 }
